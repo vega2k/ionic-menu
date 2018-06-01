@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {AccountInterface} from "../../model/account";
 import {EmailComposer} from "@ionic-native/email-composer";
+import {SMS} from "@ionic-native/sms";
 
 /**
  * Generated class for the NavPage page.
@@ -17,7 +18,10 @@ import {EmailComposer} from "@ionic-native/email-composer";
 })
 export class NavPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private emailComposer : EmailComposer) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              private emailComposer : EmailComposer,
+              private sms : SMS,
+              private alertCtrl:AlertController) {
   }
 
 
@@ -40,4 +44,32 @@ export class NavPage {
     this.emailComposer.open(email);
   }
 
+  sendSMS() {
+    let prompt = this.alertCtrl.create({
+      title: 'SMS',
+      message: "메세지를 작성하여 주시기 바랍니다.",
+      inputs: [
+        {
+          name: 'phone',
+          placeholder: 'phone number Here....'
+        },
+        {
+          name: 'message',
+          placeholder: 'Message Here....'
+        },
+      ],
+      buttons: [
+        {
+          text: '취소',
+          handler: data => { console.log('취소 clicked'); }
+        },
+        {
+          text: '보내기',
+          handler: data => { this.sms.send(data.phone, data.message);}
+        }
+      ]
+    });
+    prompt.present();
+
+  }
 }
