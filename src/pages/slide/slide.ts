@@ -26,7 +26,7 @@ export class SlidePage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SlidePage');
+    console.log('ionViewDidLoad SlidePage' + this.images);
   }
 
 }

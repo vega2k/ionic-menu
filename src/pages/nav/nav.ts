@@ -28,10 +28,10 @@ export class NavPage {
     this.accountData = this.navParams.get('account');
   }
 
-  sendEmail(data:AccountInterface) {
+  sendEmail() {
     let email = {
-      to: data.email,
-      subject: 'To :' + data.name,
+      to: this.accountData.email,
+      subject: 'To :' + this.accountData.name,
       body: '',
       isHtml: true
     };
