@@ -9,10 +9,31 @@
 
 <ion-content padding>
   <h3>Ionic Menu Starter</h3>
-
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <button ion-button full (click)="modal()">Modal</button>
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngIf="profile.actionSwitch">
+        {{profile.actionSwitch}}
+      </ion-col>
+      <ion-col *ngIf="profile.name" col-6>
+        {{profile.name}}
+      </ion-col>
+      <ion-col *ngIf="profile.gender">
+        {{profile.gender}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col *ngIf="profile.domestic">
+        {{profile.domestic}}
+      </ion-col>
+      <ion-col col-8 *ngIf="profile.startDate">
+        {{profile.startDate}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <button ion-button full (click)="promptAlert()">Alert</button>
+  <div class="divider" style="width:100%;height:20px"></div>
+  <button ion-button full color="secondary" (click)="toast()">Toast</button>
+  <div class="divider" style="width:100%;height:20px"></div>
+  <button ion-button full color="light" (click)="loading()">Loading</button>
 </ion-content>

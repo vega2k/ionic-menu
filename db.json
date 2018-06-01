@@ -1,0 +1,34 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Computer",
+      "cost": "200",
+      "quantity": "20"
+    },
+    {
+      "name": "This Product won't be",
+      "cost": "23000",
+      "quantity": "23",
+      "id": 3
+    },
+    {
+      "name": "test",
+      "cost": "100000",
+      "quantity": "20",
+      "id": 4
+    },
+    {
+      "name": "sfdsf",
+      "cost": "111",
+      "quantity": "222",
+      "id": 5
+    },
+    {
+      "name": "zCar",
+      "cost": "30000",
+      "quantity": "20",
+      "id": 7
+    }
+  ]
+}
